@@ -1,2 +1,7 @@
-# emri-mobile-apps-achala-secure-android-lib
-This repository belongs to emri-mobiles-apps of achala-secure-android-lib
+# Secure Camera SDK
+
+An Android library for secure camera integration with ML Kit face detection.
+
+## Installation
+
+Add JitPack repository to your root build.gradle: 

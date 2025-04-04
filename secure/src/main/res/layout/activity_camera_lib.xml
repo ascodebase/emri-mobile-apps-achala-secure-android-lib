@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    android:fitsSystemWindows="false">
+
+    <!-- Full Screen Camera Preview -->
+    <androidx.camera.view.PreviewView
+        android:id="@+id/preview_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="false" />
+
+    <!-- Top Bar -->
+    <LinearLayout
+        android:id="@+id/header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!-- Status Bar Height Padding -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="48dp" />
+
+        <!-- Header Content -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:paddingHorizontal="20dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:text="Face Authentication"
+                android:textColor="#FFFFFF"
+                android:textSize="20sp"
+                android:visibility="gone"
+                android:letterSpacing="0.05"
+                android:fontFamily="sans-serif-medium" />
+
+            <ImageButton
+                android:id="@+id/close_camera"
+                android:layout_width="42dp"
+                android:layout_height="42dp"
+
+                android:background="@drawable/modern_button_bg"
+                android:contentDescription="@string/close_camera_description"
+                android:padding="10dp"
+                android:src="@drawable/ic_close" />
+        </RelativeLayout>
+    </LinearLayout>
+
+    <!-- Face Guide Circle -->
+    <ImageView
+        android:layout_width="280dp"
+        android:layout_height="280dp"
+        android:visibility="gone"
+        android:layout_centerInParent="true"
+        android:src="@drawable/white_face_guide" />
+
+    <!-- User Instructions -->
+    <TextView
+        android:id="@+id/to_user"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_above="@id/bottom_container"
+        android:layout_marginBottom="48dp"
+        android:text="Please look into the camera"
+        android:textColor="#FFFFFF"
+        android:textSize="22sp"
+        android:fontFamily="sans-serif-medium"
+        android:letterSpacing="0.02"
+        android:shadowColor="#C3000000"
+        android:shadowDx="0"
+        android:shadowDy="2"
+        android:shadowRadius="4" />
+
+    <!-- Bottom Container with Black Background -->
+    <LinearLayout
+        android:id="@+id/bottom_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="#3BFBFBFB"
+        android:orientation="horizontal"
+        android:padding="16dp">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="AchalaSecure"
+            android:textColor="#ffffff"
+            android:textSize="16sp"
+            android:fontFamily="sans-serif-medium" />
+
+        <TextView
+            android:id="@+id/version_info"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="v0.0.1"
+            android:textColor="#ffffff"
+            android:textSize="16sp"
+            android:fontFamily="sans-serif-medium" />
+    </LinearLayout>
+
+    <!-- Live Detection Status (Hidden by default) -->
+    <TextView
+        android:id="@+id/live_detection"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:layout_centerHorizontal="true"
+        android:layout_above="@id/to_user"
+        android:layout_marginBottom="8dp"
+        android:textColor="#69F0AE"
+        android:textSize="16sp"
+        android:fontFamily="sans-serif-medium" />
+
+</RelativeLayout>
