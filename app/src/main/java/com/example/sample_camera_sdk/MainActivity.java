@@ -8,6 +8,10 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.mynew.secure.AchalaSecure;
 import com.mynew.secure.AchalaSecureImpl;
+import com.mynew.secure.utils.AchalaActions;
+
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -21,7 +25,15 @@ public class MainActivity extends AppCompatActivity {
         openCameraButton.setOnClickListener(v -> {
             // Create an instance and call the method
             AchalaSecure achalaSecure = new AchalaSecureImpl(MainActivity.this);
-            achalaSecure.enrollFace(100, "123");
+
+            // Add default liveness check
+            List<String> achalaActions = new ArrayList<>();
+            achalaActions.add(AchalaActions.Blink);
+            achalaActions.add(AchalaActions.Smile);
+            achalaActions.add(AchalaActions.Open_Eyes);
+            achalaSecure.setActions(achalaActions);
+
+            achalaSecure.liveNessDetection(100, "123");
 //            Intent intent = new Intent(this, CameraActivity.class);
 //            startActivity(intent);
         });

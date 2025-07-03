@@ -363,10 +363,56 @@ public class CameraActivity extends AppCompatActivity {
                 Log.d("TAG", "processImage: "+ e.getMessage());
             }
 */
+
+//            assert originalBitmap != null;
+//            int byteCount = originalBitmap.getByteCount();  // or bitmap.getAllocationByteCount() for Android 4.4+
+//            double sizeInKB = byteCount / 1024.0;
+//            double sizeInMB = sizeInKB / 1024.0;
+//
+//            Log.d("BitmapMemory", "Bitmap size in memory: " + sizeInKB + " KB (" + sizeInMB + " MB)");
+
+
+
+//            ByteArrayOutputStream stream = new ByteArrayOutputStream();
+//            originalBitmap.compress(Bitmap.CompressFormat.JPEG, 100, stream);
+//            byte[] byteArray = stream.toByteArray();
+//            double compressedKB = byteArray.length / 1024.0;
+//            double compressedMB = compressedKB / 1024.0;
+//
+//            Log.d("BitmapCompressedSize", "JPEG size: " + compressedKB + " KB (" + compressedMB + " MB)");
+//
+
+
             //objectDetection(originalBitmap);
             FaceDetector detector = FaceDetection.getClient(options);
             Task<List<Face>> result = detector.process(inputImage)
                     .addOnSuccessListener(faces -> {
+
+//                        try {
+//                            Face biggestFace = null;
+//                            int maxArea = 0;
+//
+//                            for (Face face : faces) {
+//                                if (face != null && face.getBoundingBox() != null) {
+//                                    Rect bounds = face.getBoundingBox();
+//                                    int area = bounds.width() * bounds.height();
+//
+//                                    if (area > maxArea) {
+//                                        maxArea = area;
+//                                        biggestFace = face;
+//                                    }
+//                                }
+//                            }
+//
+//                            faces.clear();
+//                            if (biggestFace != null) {
+//                                faces.add(biggestFace);
+//                            }
+//                        } catch (Exception e) {
+//                            throw new RuntimeException(e);
+//                        }
+
+
                         String distance;
                         if (faces.isEmpty()) {
                             instructionToUser.setText("Please look in to the camera");
